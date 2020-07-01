@@ -18,3 +18,17 @@
   delay: 2
   notify:
     - restart grafana
+
+- name: Update plugins
+  become: true
+  command: "grafana-cli --pluginsDir {{ grafana_data_dir }}/plugins plugins update {{ item }}"
+  args:
+    creates: "{{ grafana_data_dir }}/plugins/{{ item }}"
+  with_items: "{{ grafana_plugins }}"
+  register: _plugin_install
+  until: _plugin_install is succeeded
+  retries: 5
+  delay: 2
+  when: grafana_update_plugins|bool
+  notify:
+    - restart grafana

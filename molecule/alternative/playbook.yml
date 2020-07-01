@@ -72,6 +72,7 @@
     grafana_api_keys_dir: "/tmp/grafana/keys"
     grafana_plugins:
       - raintank-worldping-app
+    grafana_update_plugins: true
     grafana_alert_notifications:
       - name: "Email Alert"
         type: "email"

@@ -195,6 +195,9 @@ grafana_image_storage: {}
 grafana_plugins: []
 #  - raintank-worldping-app
 
+# Set to True to attempt to update all plugins on every run
+grafana_update_plugins: false
+
 # Dashboards from https://grafana.com/dashboards
 grafana_dashboards: []
 #  - dashboard_id: '4271'
